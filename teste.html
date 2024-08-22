@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paginação de Conteúdo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        width: 50%;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .content-section {
+        display: none;
+      }
+
+      .content-section.active {
+        display: block;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <button id="section1-btn">Seção 1</button>
+        <button id="section2-btn">Seção 2</button>
+      </div>
+      <div id="section1" class="content-section active">
+        <h2>Seção 1</h2>
+        <p>
+          Conteúdo da Seção 1. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit.
+        </p>
+      </div>
+      <div id="section2" class="content-section">
+        <h2>Seção 2</h2>
+        <p>
+          Conteúdo da Seção 2. Duis aute irure dolor in reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const section1Btn = document.getElementById("section1-btn");
+        const section2Btn = document.getElementById("section2-btn");
+        const section1 = document.getElementById("section1");
+        const section2 = document.getElementById("section2");
+
+        section1Btn.addEventListener("click", function () {
+          section1.classList.add("active");
+          section2.classList.remove("active");
+        });
+
+        section2Btn.addEventListener("click", function () {
+          section2.classList.add("active");
+          section1.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
